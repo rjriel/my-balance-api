@@ -7,7 +7,10 @@ var passwordHash = require('password-hash');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  res.status(403).send();
+  //res.status(403).send();
+  User.find({}, function(err, users) {
+    res.status(200).json(users);
+  });
 });
 
 router.get('/:id', function(req, res) {

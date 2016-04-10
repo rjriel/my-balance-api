@@ -24,7 +24,7 @@ describe('Users', function() {
       .end(function(err, res) { // .end handles the response
         console.log('res');
         console.log(err);
-        console.log(res);
+        console.log(res.body);
         if (err) {
           return done(err);
         }
@@ -33,6 +33,7 @@ describe('Users', function() {
   });
   console.log(userId);
   if (userId != null) {
+    console.log('testing remove');
     it('should remove a user', function(done) {
       request('app')
         .delete('/users/'+userId)
